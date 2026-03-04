@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary AI Medical Image Naming Tool</title>
+</head>
+<body>
+  <div class="card">
+      <div class="header-flex">
+          <h2 style="margin:0; color: var(--nyu-purple);">Visionary AI Retinal Image Naming Tool</h2>
+          <button class="info-btn" onclick="toggleModal(true)">?</button>
+      </div>
+
+      <div id="error-msg">⚠️ Action Required: Please fill out all fields highlighted in red.</div>
+
+      <div class="grid-inputs">
+          <div class="input-wrap">
+              <label>Site Name</label>
+              <select id="site">
+                  <option value="">-- Select Site --</option>
+                  <option value="JNMC">JNMC</option>
+                  <option value="SNMC">SNMC</option>
+              </select>
+          </div>
+          <div class="input-wrap">
+              <label>Participant ID</label>
+              <input type="text" id="pID" placeholder="S-12-12345">
+          </div>
+          <div class="input-wrap">
+              <label>Trimester</label>
+              <select id="trimester">
+                  <option value="">-- Select Trimester --</option>
+                  <option value="trim1">Trimester 1</option>
+                  <option value="trim2">Trimester 2</option>
+                  <option value="trim3">Trimester 3</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="actions">
+          <button id="gen-btn" onclick="generateNames()">Generate Names</button>
+          <button id="clear-btn" onclick="clearFields()">Clear Form</button>
+      </div>
+
+      <div class="results-section">
+          <div class="output-container">
+              <h3>OPTOS File Names</h3>
+              <textarea id="optosOutput" readonly></textarea>
+          </div>
+
+          <div class="output-container">
+              <h3>Remidio File Names</h3>
+              <textarea id="remidioOutput" readonly></textarea>
+          </div>
+      </div>
+  </div>
+
+  <div id="infoModal">
+      <div class="modal-content">
+          <span class="close" onclick="toggleModal(false)">&times;</span>
+          <h3 style="color:var(--nyu-purple)">Protocol Reference</h3>
+          <p>Generates standardized filenames for both imaging platforms.</p>
+          <hr>
+          <strong>Remidio Sequence:</strong>
+          <p>TR → MR → BR → BL → ML → TL → RE → LE</p>
+      </div>
+  </div>
+</body>
+</html>
